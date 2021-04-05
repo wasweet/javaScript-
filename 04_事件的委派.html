@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var ul = document.getElementById("ul");
+				//通过按钮添加超链接、
+				var btn = document.getElementById("btn");
+				btn.onclick = function() {
+					var li = document.createElement("li");
+					li.innerHTML = "<a href='javescrip:;'>超链接</a>";
+					
+					//添加到ul中
+					ul.appendChild(li);
+				}
+				
+				//为每个超链接添加点击函数
+				
+				//获取所有的a链接
+				// var a = document.getElementsByTagName("a");
+				// //遍历
+				// for(var i = 0; i < a.length; i++) {
+				// 	a[i].onclick = function() {
+				// 		alert("我是超链接");
+				// 	}
+				// };
+				
+				/*
+				事件的委派
+				  -指将事件统一绑定给元素的共同的祖先元素，这样当后代元素事件触发时，会一直冒泡到祖先元素。
+				  从而通过祖先元素的响应时间来处理
+				  好处：减少事件绑定的次数，提高程序效率
+				*/
+				ul.onclick = function() {
+					alert("我是ul超链接");
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		<button id="btn">添加超链接</button>
+		<ul id="ul">
+			<li><a href="javescrip:;">超链接</a></li>
+			<li><a href="javescrip:;">超链接</a></li>
+			<li><a href="javescrip:;">超链接</a></li>
+		</ul>
+		
+	</body>
+</html>
