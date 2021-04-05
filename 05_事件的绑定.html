@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				//为事件绑定多个响应事件
+				//addEventListener()
+				//参数：1 事件，  2 回调函数，  3 是否在捕获阶段触发事件，一般都传false
+				var btn = document.getElementById("button");
+				btn.addEventListener("click",function() {
+					alert(1);
+				},false)
+				btn.addEventListener("click",function() {
+					alert(2);
+				},false)
+				btn.addEventListener("click",function() {
+					alert(3);
+				},false)
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" id="button">dianji</button>
+	</body>
+</html>
