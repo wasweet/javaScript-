@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: #00FFFF;
+				position: absolute;
+			}
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color:red;
+				position: absolute;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//box拖拽流程：
+				//1 鼠标在box上按下时，开始拖拽onmousedown
+				//2 鼠标移动时，div跟着移动onmousemove
+				//3 鼠标松开时，被拖拽元素固定到当前位置onmouseup
+				
+				var box = document.getElementById("box");
+				
+				//开启box
+				drag(box);
+				//开启box1
+				drag(box1);
+				
+				//封装函数drag（）
+				//参数：开启拖拽元素
+				function drag(obj) {
+					
+					//onmousedown鼠标被按下时
+					obj.onmousedown = function(event) {
+						//保持鼠标位置
+						//div的偏移量 鼠标.clientX - 元素.offsetLeft；
+								  //鼠标.clientY - 元素.offsetTop；
+						var ol = event.clientX - obj.offsetLeft;
+						var ot = event.clientY - obj.offsetTop;
+						
+						//鼠标移动时，div跟着移动onmousemove
+						document.onmousemove = function(event) {
+							event = event || window.event;
+							var left = event.clientX - ol;
+							var top = event.clientY - ot;
+							
+							//修改box位置
+							obj.style.left = left + "px";
+							obj.style.top = top + "px";
+						};
+					};
+					//鼠标松开时，被拖拽元素固定到当前位置onmouseup
+					document.onmouseup = function() {
+						//取消document的onmousemove
+						document.onmousemove = null;
+						//取消document 的onmouseup事件
+						//document.onmouseup = null;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+	</body>
+</html>

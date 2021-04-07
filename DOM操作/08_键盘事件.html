@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				//onkeydown	某个键盘按键被按下。
+				//	onkeypress	某个键盘按键被按下并松开。
+				//	onkeyup	某个键盘按键被松开。
+				document.onkeydown = function(event) {
+					//可以通过keyCode来获取按键编码
+					console.log(event.keyCode);
+					
+					
+					//判断y是否被按下
+					if(event.keyCode === 89) {
+						console.log("y的编码是89");
+					}
+					
+					//altKey	返回当事件被触发时，"ALT" 是否被按下。
+					//ctrlKey	返回当事件被触发时，"CTRL" 键是否被按下。
+					//shiftKey	返回当事件被触发时，"SHIFT" 键是否被按下。
+					
+					//判断 z键和ctrl键是否同时按下
+					if(event.keyCode === 90 && event.ctrlKey) {
+						console.log("z是90，ctrl是91");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
