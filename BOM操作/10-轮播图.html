@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#outer {
+				width: 500px;
+				height: 350px;
+				margin: 50px auto;
+				background-color: #FF0000;
+				padding: 10px;
+				position: relative;
+				overflow: hidden;
+			}
+			#imgList {
+				/* width: 2500px; */
+				position: absolute;
+				/* 设置偏移量 */
+				left: 0;
+			}
+			#imgList img {
+				width: 500px;
+				height: 350px;
+			}
+			#imgList li {
+				list-style: none;
+				float: left;
+				margin: 0 10px;
+			}
+			#navBar {
+				position: absolute;
+				/* 设置位置 */
+				bottom: 15px;
+				left: 50%;
+				/* 设置居中 */
+				transform: translateX(-50%);
+			}#navBar a {
+				float: left;
+				width: 20px;
+				height: 20px;
+				background-color: #00FFFF;
+				/* 设置左右外边距 */
+				margin: 0 5px;
+				/* 设置透明度 */
+				opacity: 0.5;
+			}
+			#navBar a:hover {
+				background-color: #000000;
+			}
+		</style>
+		<!-- 引入tools.js里封装好的函数工具 -->
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				//获取动态img宽度
+				//获取imglist
+				var imgList = document.getElementById("imgList");
+				//获取页面中所有img标签
+				var imgArr = document.getElementsByTagName("img");
+				//设置imglist的宽度
+				imgList.style.width = 520 * imgArr.length + "px";
+				
+				var timer;
+				//设置默认显示图片的索引
+				var index = 0;
+				var a = document.getElementsByTagName("a");
+				a[index].style.background = "#000000";
+				
+				// 点击导航 切换图片
+				for (var i = 0;i < a.length;i++) {
+					
+					//为每个超链接都添加一个num属性
+					a[i].num = i;
+					
+					a[i].onclick = function() {
+						//手动点击时，关闭自动切换函数
+						clearInterval(timer);
+						
+						// 点击获取图片超链接索引
+						index = this.num;
+						//切换图片
+						/*    索引  left
+						第一张 0      0
+						第二张  1     -520
+						第三章   2    -1040
+						*/
+						// imgList.style.left = -520*index + "px";
+						
+						// 设置选中的a
+						setA();
+						
+						//使用tools.js 中的move函数来切换图片
+						move(imgList, 10, -520 * index, "left", function() {
+							//动画执行完毕，开启自动切换函数
+							autoChange();
+						});
+						
+					};
+				} 
+				
+				//开启自动切换图片
+				autoChange();
+				
+				//封装函数 用来设置 a：hover
+				function setA() {
+					
+					//判断当前索引是否为最后一张图片
+					if(index >= imgArr.length - 1) {
+						index = 0;
+						
+					// 	// 此时显示的的最后一张图片跟第一张图片是一样的
+					// 	//通过css样式将最后一张切换为第一张
+						imgList.style.left = 0;
+					 }
+					
+					//遍历a 都设置为#00FFFF
+					for(var i = 0; i < a.length; i++) {
+						a[i].style.backgroundColor = "";
+					}
+					//再将选中的设置为#000000
+					a[index].style.backgroundColor = "#000000";
+				}
+				
+				//封装函数 自动切换图片
+				function autoChange() {
+					
+					// 设置定时器
+				 timer = setInterval(function() {
+						// index自增
+						index++;
+						index %= imgArr.length;
+						move(imgList, 10, -520*index, "left", function(){
+							setA();
+						});
+						
+					},2000)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 创建一个外部的div，作为大容器 -->
+		<div id="outer">
+			<ul id="imgList">
+				<li><img src="img/img1.jpeg" ></li>
+				<li><img src="img/img2.jpeg" ></li>
+				<li><img src="img/img3.jpeg" ></li>
+				<li><img src="img/img1.jpeg" ></li>
+			</ul>
+			<!-- 设置导航栏 -->
+			<div id="navBar">
+				<a href="javascript:void(0);"></a>
+				<a href="javascript:void(0);"></a>
+				<a href="javascript:void(0);"></a>
+			</div>
+		</div>
+	</body>
+</html>

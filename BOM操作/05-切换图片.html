@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#img {
+				width: 500px;
+				height: 350px;
+				margin: 0 auto;
+			}
+			.btn {
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//是图片可以自动切换
+				
+				var img = document.getElementById("img");
+				
+				//创建一个数组 用来保存图片地址
+				var imgArry = ['img/img1.jpeg','img/img2.jpeg','img/img3.jpeg']
+				//创建一个变量，用来保存当前图片的索引
+				var index = 0;
+				
+				var  timer;
+				
+				//点击开始按钮，图片开始切换
+				var begin = document.getElementById("begin");
+				begin.onclick = function() {
+					//每次点击都会创建一个新的定时器，所以每次点击时，要取消上一次的定时器
+					clearInterval(timer);
+					
+						//创建一个定时器，来自动切换图片
+					timer = setInterval(function(){
+							//索引自增
+							index++;
+							//判断索引是否超过数组最大长度
+							// if(index >= imgArry.length) {
+							// 	index = 0;
+							// }
+							index %= imgArry.length;
+							//修改img.src的属性
+							img.src = imgArry[index];
+						},1000)
+				};
+				//点击暂停按钮，图片暂停
+				var stop = document.getElementById("stop");
+				stop.onclick = function() {
+					//关闭定时器
+					clearInterval(timer);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="btn">
+		<img id="img" src="img/img1.jpeg" alt="">
+		<br>
+			<button id="begin" type="button">开始</button>
+		<button id="stop" type="button">暂停</button>
+		</div>
+		
+	</body>
+</html>

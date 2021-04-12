@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: #000000;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//添加定时器，使移动更流畅
+				
+				 var speed = 10;
+				 var dir = 0;
+				setInterval(function() {
+					//上：38 下：40 左：37 右：39
+					switch(dir) {
+						case 38://向上
+						box.style.top = box.offsetTop - speed + "px";
+						break;
+						case 40://向下
+						box.style.top = box.offsetTop + speed + "px";
+						break;
+						case 37:
+						box.style.left = box.offsetLeft - speed + "px";
+						break;
+						case 39:
+						box.style.left = box.offsetLeft + speed + "px";
+						break;
+						
+					}
+				},30);
+				
+				document.onkeydown = function(event) {
+					//按上下左右 ，div跟着移动
+					//先判断上下左右的编码
+					//console.log(event.keyCode);
+					dir = event.keyCode;
+					//按shift加速
+					if(event.shiftKey) {
+						speed = 30;
+					} else {
+						speed = 10;
+					}
+				}
+				document.onkeyup = function() {
+					dir = 0;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

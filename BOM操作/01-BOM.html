@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				BOM: 浏览器对象模型
+				BOM 可以使我们通过js操作浏览器
+				在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+				BOM对象：
+					window ：代表整个浏览器的窗口，同时window也是页面中的全局对象
+					
+					navigator ： 代表当前浏览器的信息，通过改对象可以识别不同的浏览器
+					 
+					history ： 代表浏览器的历史记录，可以通过该对象来操作浏览器的历史记录
+								只能操作浏览器向前向后翻页，而且是 当次访问有效
+					screen ： 代表用户的屏幕信息，获取用户显示器的信息
+			*/
+		   
+		   //navigator ： 代表当前浏览器的信息，通过改对象可以识别不同的浏览器
+					 //console.log(navigator.appName);
+					 console.log(navigator.userAgent);
+//Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36
+//Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15			
+			var obj = navigator.userAgent;
+			if(/chrome/i.test(obj)) {
+				console.log("Chrome");
+			} else if (/safari/i.test(obj)) {
+				console.log("safari");
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

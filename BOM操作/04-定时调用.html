@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			通过 JavaScript 使用的有两个关键的方法：
+			
+			setTimeout(function, milliseconds)
+			在等待指定的毫秒数后执行函数。
+			setInterval(function, milliseconds)
+			等同于 setTimeout()，但持续重复执行该函数。
+			
+			setTimeout()
+			第一个参数是要执行的函数。
+			第二个参数指示执行之前的毫秒数。
+			
+			setInterval()
+			第一个参数是要执行的函数。
+			第二个参数每个执行之间的时间间隔的长度。
+			
+			clearInterval() 关闭定时器
+			*/
+		   window.onload = function() {
+			   var text = document.getElementById("text");
+		   var num = 1;
+		   var timer = setInterval(function() {
+			   text.innerHTML = num++;
+			   
+			   if(num == 11) {
+				   clearInterval(timer);
+			   }
+		   },1000)
+		   }
+		   
+		</script>
+	</head>
+	<body>
+		<div id="text"></div>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			#box2 {
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				position: absolute;
+				top:200px;
+				
+			}
+		</style>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var box1 = document.getElementById("box1");
+				var btn = document.getElementById("btn");
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var box2 = document.getElementById("box2");
+				var btn3 = document.getElementById("btn3");
+				
+
+				//点击按钮以后让div向右移动  left值增大
+				btn.onclick = function() {
+				move(box1,10,800,"left")
+				};
+				//点击按钮以后让div向左移动  left值减小
+				btn1.onclick = function() {
+				move(box1,10,0,"left")
+				};
+				
+				//点击btn2按钮让box2向右移动
+				btn2.onclick = function() {
+					move(box2,10,800,"left");
+				}
+				
+				//修改要执行的动画的样式
+				btn3.onclick = function() {
+					move(box2,10,400,"width",function() {
+						move(box2, 10, 400, "height",function() {
+							move(box2,10,100,"width",function(){
+								move(box2,10,100,"height")
+							})
+						})
+					})
+				}
+			};
+			
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn" type="button">点我向右移动</button>
+		<button id="btn1" type="button">点我向左移动</button>
+		<button id="btn2" type="button">点我让box2向右移动</button>
+		<button id="btn3" type="button">点我</button>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div style=" width: 0; height: 1000px; border-left:1px black solid; position: absolute; left: 800px;top: 0;">
+		</div>
+	</body>
+</html>
