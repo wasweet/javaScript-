@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 先创建空Object对象，在动态添加属性或方法
+		 -->
+		 <script type="text/javascript">
+		 	var p = new Object()
+			p.name = 'Tom'
+			p.age = 12
+			p.setName = function(name) {
+				this.name = name
+			}
+			
+			p.setName('Bob')
+			console.log(p.name)
+		 </script>
+	</body>
+</html>

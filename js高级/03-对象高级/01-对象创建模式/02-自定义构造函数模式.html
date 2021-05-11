@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			自定义构造函数模式
+				自定义构造函数，通过new创建对象
+				适用场景：需要创建多个类型确定的对象
+				问题：每个对象都有相同的数据，浪费内存
+		 -->
+		<script type="text/javascript">
+			function Person(name, age) {
+				this.name = name,
+				this.age = age,
+				this.setName = function(name) {
+					this.name = name
+				}
+			}
+			function Student(name, age) {
+				this.name = name,
+				this.age = age,
+				this.setName = function(name) {
+					this.name = name
+				}
+			}
+			var p1 = new Person('Tom',12)
+			p1.setName('Bob')
+			console.log(p1.name, p1.age)
+			
+			var s1 = new Student('Bob',13)
+			console.log(p1 instanceof Person)
+			console.log(s1 instanceof Student)
+		</script>
+	</body>
+</html>

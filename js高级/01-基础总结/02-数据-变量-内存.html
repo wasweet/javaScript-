@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 关于引用变量赋值问题
+				2个引用变量指向同一个对象，通过一个变量修改对象内部数据，另一个变量看到的是修改后的数据
+				2个引用变量指向同一个对象，让其中的一个引用变量指向另一个对象，另一应用变量依然指向前一个对象
+				
+		 -->
+		<script type="text/javascript">
+			var obj1 = {name:'Tom'};
+			var obj2 = obj1;
+			obj2.age = 12;
+			console.log(obj1.age);
+			function fn(obj) {
+				obj.name = 'a';
+			}
+			fn(obj1);
+			console.log(obj2.name);
+			
+			var a = {age : 12};
+			var b = a;
+			a = {name:'bob',age:13};
+			b.age = 14;
+			console.log(b.age, a.name, a.age); //14 bob 13
+			function fn2(obj) {
+				obj = {age : 15}; //赋值了新的对象
+			}
+			fn2(a);
+			console.log(a.age); //13
+			
+			
+			
+			console.log('-------------------');
+			
+			// 在js调用函数时传递变量参数时,是值传递还是引用传递？
+				// 理解1.都是值传递(基本值/地址值)
+				// 理解2.可能是值传递,也可能是引用传递(地址值)
+			var c = 3;
+			function asd(c) {
+				b = c+1;
+			}
+			asd(c);
+			console.log(b,c);
+			
+			
+			function axc(obj) {
+				console.log(obj.name);
+			}
+			 var obj = {name:'tom'};
+			 axc(obj);
+			 
+			 
+			 
+			 // js引擎如何管理内存？
+			 // 1.内存生命周期
+			 //     分配小内存空间,得到他的使用权
+				//  存储数据,可以进行反复操作
+				//  释放小内存空间
+			 // 2.释放内存	
+			  //       局部变量:函数执行完自动释放,
+					// 对象:成为垃圾对象,垃圾回收器回收
+					
+					// var a = 3;
+					// var obj = {};
+					// obj = null;
+					
+					// function fn() {
+					// 	var b = 1;
+					// }
+					// fn();执行完，局部变量自动释放
+		</script>
+	</body>
+</html>

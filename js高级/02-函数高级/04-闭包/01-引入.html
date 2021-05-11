@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">1</button>
+		<button type="button">2</button>
+		<button type="button">3</button>
+		<script type="text/javascript">
+			var btn = document.getElementsByTagName('button')
+			
+			
+			// for(var i=0; i<btn.length; i++) {
+			// 	btn[i].onclick = function() {
+			// 		alert('第'+(i+1)+'个')
+			// 	}
+			//  }
+			
+		
+			// for (var i = 0;i < btn.length;i++) {
+			// 	var bt = btn[i]
+			// 	bt.index = i
+			// 	bt.onclick = function() {
+			// 		alert('第'+(this.index+1)+'个')
+			// 	}
+			//  }
+			
+			
+			// 闭包
+			for (var i = 0;i < btn.length;i++) {
+				(function(i) {
+					btn[i].onclick = function() {
+					 		alert('第'+(i+1)+'个')
+					 	}
+				})(i)
+			}
+		</script>
+	</body>
+</html>

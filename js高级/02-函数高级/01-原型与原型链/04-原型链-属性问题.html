@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			1.读取属性时，会自动到原型链中查找
+			2.设置对象的属性时：不会查找原型链，如果当当前对象中没有此属性，直接添加此属性并设置其值
+			3.方法一般定义在原型中，属性一般通过构造函数定义在对象本身上
+		 -->
+		 <script type="text/javascript">
+		 	function Fn() {
+				
+			}
+			Fn.prototype.a = 'wasweat'
+			var fn1 = new Fn()
+			console.log(fn1.a ,fn1)
+			
+			var fn2 = new Fn()
+			fn2.a = 'wwas'
+			console.log(fn2.a, fn1.a ,fn2)
+			
+			
+			function Person(name,age) {
+				this.name = name
+				this.age = age
+			}
+			Person.prototype.setName = function(name) {
+				this.name = name
+			}
+			var p1 = new Person('wasweat', 20)
+			p1.setName('asda')
+			console.log(p1)
+			
+			var p2 = new Person('ghjfg', 12)
+			p2.setName('cdca')
+			console.log(p2)
+			console.log(p1.__proto__ === p2.__proto__) //true
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		  gb:undefined
+		  fb: 1
+		  fb: 2
+		  fb: 3
+		  fe:3
+		  fe:2
+		  fe:1
+		  ge:1
+		  
+		  共产生5个执行上下文
+		 -->
+		 <img src="./img/6579B090-5E80-4A9B-9C01-1D0CC8AEC9B1.png" >
+		<script type="text/javascript">
+			console.log('gb:' +i) //undefined
+			var i = 1
+			foo(1)
+			function foo(i) {
+				if( i == 4) {
+					return 
+				}
+				console.log('fb: '+ i)
+				foo(i+1)
+				console.log('fe:' + i)
+			}
+			console.log('ge:'+i) //1
+			
+			
+			
+			
+			/*
+				测试题一：先执行变量提升，在执行函数提升
+			*/ 
+		   function a() {
+			   
+		   }
+		   var a;
+		   console.log(typeof a)   //function
+		   
+		   /*
+		   	测试题二：
+		   */
+		  if(!(b in window)) {
+			  var b = 1
+		  }
+		  console.log(b) //undefined
+		  
+		  /*
+		  	测试题三：
+		  */
+			var c = 1
+			function c(c) {
+				console.log(c)
+			}
+			c(2)  //c is not a function
+			
+			/**
+			 相当于
+			 var c 
+			 function c(c) {
+			 	console.log(c)
+			 }
+			 c = 1
+			 c(2)  //c is not a function
+			 * */ 
+		</script>
+	</body>
+</html>

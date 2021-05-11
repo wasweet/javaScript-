@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			工厂模式：
+				通过工厂函数动态创建对象并返回
+				适用场景：需要创建对歌对象
+				问题：对象没有一个具体的类型，都是Object类型
+		 -->
+		 <script type="text/javascript">
+		 	function creatPerson(name,age) {  //返回一个对象的函数都是工厂函数
+				var obj = {
+					name: name,
+					age: age,
+					setName: function(name) {
+						this.name = name
+					}
+				}
+				return obj
+			}
+			
+			var p1 = creatPerson('Tom',12)
+			console.log(p1.name, p1.age)
+			var p2 = creatPerson('Bob',13)
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="./img/BB77F6D9-ADB0-45AA-A416-F48C6E1F5CD8.png" >
+		<script type="text/javascript">
+			// 父类型
+			function Father() {
+				this.a = '我是父类型的a'
+			}
+			Father.prototype.fat = function() {
+				console.log(this.a)
+			}
+			
+			// 子类型
+			function Son() {
+				this.b = '我是子类型的b'
+			}
+			
+			// 子类型的原型为父类型的一个实例对象
+			Son.prototype = new Father()
+			
+			Son.prototype.sonb = function() {
+				console.log(this.b)
+			}
+			var son = new Son()
+			son.fat()
+			son.sonb()
+		</script>
+	</body>
+</html>
