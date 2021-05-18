@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function *gen() {
+				yield 'qwe';
+				yield 'asd';
+				yield 'zxc';
+			}
+			let iterator = gen()
+			console.log(iterator.next())
+			console.log(iterator.next())
+			console.log(iterator.next())
+			console.log(iterator.next())
+		</script>
+	</body>
+</html>

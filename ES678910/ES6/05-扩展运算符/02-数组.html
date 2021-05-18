@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			// 1. 数组的合并
+			// const arr1 = ['奥迪','说的是','玩儿']
+			// const arr2 = ['v吧','发光','规划']
+			// // ES5  const arr3 = arr1.concat(arr2)
+			// const arr3 = [...arr1,...arr2]
+			// console.log(arr3)
+			
+			// 2. 数组的克隆
+			const arr1 = ['a','b','c']
+			const arr2 = [...arr1]
+			console.log(arr2)
+			
+			// 3.将伪数组转换为真正的数组
+			const divs = document.querySelectorAll('div')
+			const arr = [...divs]
+			console.log(arr)
+		</script>
+		
+	</body>
+</html>

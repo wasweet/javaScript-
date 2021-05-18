@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// ES6 引入 rest 参数，用于获取函数的实参， 用来代替arguments
+			// ES5 获取实参的方式
+			function date() {
+				console.log(arguments)  //Obejct
+			}
+			date('大撒','方式','请问')  
+			 
+			 // ES6  rest参数   rest参数必须放在最后
+			 function date (...qwe) {
+				 console.log(qwe)      //Array  数组  可以使用数组的一些方法 filter some every map
+			 }
+			 date('大撒','方式','请问') 
+		</script>
+	</body>
+</html>

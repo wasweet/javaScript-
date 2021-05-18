@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1 Object.is 判断两个值是否完全相等
+			console.log(Object.is(120,130))  // ===  false
+			console.log(Object.is(NaN,NaN))  // ===  true
+			// 2 Object.assign 对象的合并
+			const arr1 = {
+				name:'asd',
+				age:12,
+				price:30
+			}
+			const arr2 = {
+				sex:'男',
+				geade:100,
+				city:'北京'
+			}
+			console.log(Object.assign(arr1,arr2))  // 若有相同的 后面的会把前面的覆盖
+			// Object.setPrototypeOf 设置原型对象 Object.getPrototypeOf
+			const school = {
+				name:'bejing'
+			}
+			const city = {
+				names:['beijing','shanghai']
+			}
+			Object.setPrototypeOf(school,city)
+			console.log(school)
+		</script>
+	</body>
+</html>

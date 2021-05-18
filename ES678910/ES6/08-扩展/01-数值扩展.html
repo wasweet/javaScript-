@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Number.EPSILON 是JavaScript 表示的最小精度
+			// console.log(0.1+0.2 === 0.3) //false
+			// function equal(a,b) {
+			// 	if(Math.abs(a-b) < Number.EPSILON) {
+			// 		return true
+			// 	}else {
+			// 		return false
+			// 	}
+			// }
+			// console.log(equal(0.1+0.2 , 0.3))  //true
+			
+			
+			// 二进制和八进制
+			// let b = 0b1010; console.log(b) //二进制
+			// let o = 0o777;console.log(o)   //八进制
+			// let d = 100;console.log(d)	//十进制
+			// let e = 0xff;console.log(e)	//十六进制
+			
+			
+			// Number.isFinite() //检测一个数值是否为有限数
+			// console.log(Number.isFinite(100)) //true
+			// console.log(Number.isFinite(100/0)) //false
+			
+			// Number.isNaN() //是否为NaN
+			
+			// Number.parseInt()	Number.parseFloat()  字符串转整数
+			console.log(Number.parseInt('123asd')) //123
+			console.log(Number.parseFloat('3.13sdfa'))  //3.13
+			
+			// Number.isInteger()  //是否为整数
+			
+			// Math.trunc()  //将数字的小数部分抹掉
+			// console.log(Math.trunc(3.5))  //3
+			
+			
+			Math.sign()  //正数  负数  0    返回 1 -1 0
+		</script>
+	</body>
+</html>

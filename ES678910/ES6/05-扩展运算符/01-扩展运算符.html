@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// ...  能将 数组 转换为逗号分隔的 参数序列
+			
+			const arr = ['asd','asf','sda']
+			
+			function arr1() {
+				console.log(arguments)
+			}
+			arr1(...arr)  //arr1('asd','asf','sda')
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.数组的解构
+			// const f4 = ['asd','aqwe','ert']
+			// let [num1,num2,num3] = f4
+			// console.log(num1)
+			// console.log(num2)
+			// console.log(num3)
+			
+			//2.对象的解构
+			const qwe = {
+				name: 'wasweat',
+				age:12,
+				setName: function() {
+					console.log('我是方法')
+				}
+			}
+			let {name, age, setName} = qwe
+			
+			console.log(name)
+			console.log(age)
+			setName()
+		</script>
+	</body>
+</html>
