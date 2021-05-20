@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+			let str =`
+			<ul>
+				<li>
+					<a>肖申克的救赎</a>
+					<p>上映日期：1994-09-10</p>
+				</li>
+				<li>
+					<a>阿甘正传</a>
+					<p>上映日期：1994-07-06</p>
+				</li>
+			</ul>`
+			
+			//声明正则
+			const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+			// 调用方法
+			const result = str.match(reg)
+			
+			const arr = [...result]
+			console.log(arr)
+		</script>
+	</body>
+</html>

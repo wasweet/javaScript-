@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- trimStart      trimEnd -->
+		<script type="text/javascript">
+			// trim  清除字符串两边的空白字符
+			// trimStart  trimEnd  指定清除字符串 左侧 或 右侧 空白字符
+			
+			let str = '   wasweat   '
+			console.log(str) 				//...wasweat...    .代表空白
+			console.log(str.trimStart())	//wasweat...
+			console.log(str.trimEnd())		//...wasweat
+			
+			
+			console.log(str.trimLeft())		//wasweat...
+			console.log(str.trimRight())	//...wasweat
+		</script>
+	</body>
+</html>

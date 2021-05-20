@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let str = 'js12314123萨达222说的是'
+			
+			// 正向断言
+			// const reg = /\d+(?=说)/;
+			// const result = reg.exec(str) 
+			
+			//反向断言
+			const reg = /(?<=达)\d+/;
+			const result = reg.exec(str) 
+			
+			console.log(result)
+		</script>
+	</body>
+</html>

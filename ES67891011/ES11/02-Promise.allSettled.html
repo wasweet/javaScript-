@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const p1 = new Promise((resolve,reject) => {
+				setTimeout(()=> {
+					resolve('商品数据 - 1')
+				},1000)
+			})
+			const p2 = new Promise((resolve,reject) => {
+				setTimeout(()=> {
+					// resolve('商品数据 - 2')
+					reject('失败了')
+				},1000)
+			})
+			
+			// 调用 allSettled 方法 
+			// const result = Promise.allSettled([p1,p2])  //不管有没有失败 都成功 
+			const result = Promise.all([p1,p2]) //都成功才成功 有一个失败就失败
+			console.log(result)
+		</script>
+	</body>
+</html>
