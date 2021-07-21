@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let lessons = [{
+					title: "wasweat媒体查询响应式布局",
+					author: "wasweat"
+				},
+				{
+					title: "FLEX 弹性盒模型",
+					author: "wasweat"
+				},
+				{
+					title: "GRID 栅格系统wasweat教程",
+					author: "wasweat"
+				}
+			];
+
+			function template() {
+				return `<ul>
+					${lessons.map(item => links`<li>${item.author}:${item.title}</li>`).join('')}
+				</ul>`;
+			}
+
+			function links(strings, ...vars) {
+				return strings
+					.map((str, key) => {
+						return (str + (vars[key] ? vars[key].replace("wasweat",`<a href="https://www.houdunren.com">wasweat</a>`) :""));
+					}).join("");
+			}
+			document.body.innerHTML += template();
+		</script>
+	</body>
+</html>
