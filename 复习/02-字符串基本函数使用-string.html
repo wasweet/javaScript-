@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let name = "wasweat";
+			console.log(name)  // wasweat
+			console.log(name.length) // 7
+			
+			/**
+			 * 大小写转换
+			 * */
+			console.log(name.toUpperCase()) // WASWEAT
+			console.log("WASWEAT".toLowerCase())  // wasweat
+			
+			/**
+			 * 移除空白
+			 */
+			let str = '   wasweat.com  ';
+			console.log(str.length);  // 16
+			console.log(str.trim().length) // 11
+			
+			// 
+			let str1 = '   wasweat.com  ';
+			console.log(str1.trimLeft()) // 去除左边空格
+			console.log(str1.trimRight()) // 去除右边空格
+			
+			console.log('wasweat'.charAt(3))  //获取单独字符串  w
+			
+			/**
+			 * 截取字符串
+					使用 slice、substr、substring 函数都可以截取字符串。
+					slice、substring 第二个参数为截取的结束位置
+					substr 第二个参数指定获取字符数量
+			 * */ 
+			 let str2 = 'wasweat';
+			 console.log(str2.slice(3)); //weat
+			 console.log(str2.substr(3)); //weat
+			 console.log(str2.substring(3)); //weat
+
+			console.log(str2.slice(3, 6)); //wea
+			console.log(str2.substring(3, 6)); //wea
+			console.log(str2.substring(3, 0)); //was 较小的做为起始位置
+			console.log(str2.substr(3, 6)); //weat
+			
+			console.log(str2.slice(3, -1)); //wea 第二个为负数表示从后面算的字符
+			console.log(str2.slice(-2));//at 从末尾取
+			console.log(str2.substring(3, -9)); //was 负数转为0
+			console.log(str2.substr(-3, 2)); //ea 从后面第三个开始取两个
+			
+			/**
+			 * 查找字符串
+			 */
+			//从开始获取字符串位置，检测不到时返回 -1
+			console.log('wasweat'.indexOf('a')) // 1
+			console.log('wasweat'.indexOf('a',3))  // 5 从第3个字符向后搜索
+			
+			// 从结尾来搜索字符串位置
+			console.log('wasweat'.lastIndexOf('a')) // 5
+			console.log('wasweat'.lastIndexOf('a',3)) // 1 从第3个字符向前搜索
+			
+			// search() 方法用于检索字符串中指定的子字符串，也可以使用正则表达式搜索
+			let str3 = "wasweat.com";
+			console.log(str3.search("com"));  // 8
+			console.log(str3.search(/\.com/i)); // 7
+			
+			// includes 字符串中是否包含指定的值，第二个参数指查找开始位置
+			console.log('wasweat'.includes('a')) // true
+			console.log('wasweat'.includes('e',2)) //true
+			
+			// startsWith 是否是指定位置开始，第二个参数为查找的开始位置。
+			console.log('wasweat'.startsWith('e')) //false
+			console.log('wasweat'.startsWith('e',4)) //true
+			// endsWith 是否是指定位置结束，第二个参数为查找的结束位置。
+			console.log('wasweat'.endsWith('e')) //false
+			console.log('wasweat'.endsWith('a', 2)); //true
+			
+			/**
+			 * 替换字符串
+			 */
+			// replace 方法用于字符串的替换操作
+			 let str4 = 'wasweat';
+			 web = str4.replace('wasweat','王子为');
+			 console.log(web)  // 王子为
+			 
+			 // example
+			 const word = ["php", "css"];
+			 const string = "我喜欢在后盾人学习php与css知识";
+			 const title = word.reduce((pre, word) => {
+			   return pre.replace(word, `<a href="?w=${word}">${word}</a>`);
+			 }, string);
+			 document.body.innerHTML += title;
+			 
+			 /**
+				* 重复生成
+				* */
+				function star(num = 3) {
+					return '*'.repeat(num);
+				}
+				console.log(star()) // ***
+				
+				
+				let phone = "98765432101";
+				console.log(phone.slice(0, -3) + "*".repeat(3));
+				
+				/**
+				 * 类型转换
+				 * */
+				 // 分隔字母
+				 let str5 = 'wasweat';
+				 console.log(str5.split('')); //  ["w", "a", "s", "w", "e", "a", "t"]
+				 
+				 // 将字符串转换为数组
+				 console.log("1,2,3".split(",")) //["1", "2", "3"]
+				 
+				 // 隐式类型转换会根据类型自动转换类型
+				 let hd = 99 + '';
+				 console.log(typeof hd); //string
+				 
+				 // 使用 String 构造函数可以显示转换字符串类型
+				 let hd1 = 99; 
+				 console.log(typeof String(hd1)); // string
+				 
+				 // js中大部分类型都是对象，可以使用类方法 toString转化为字符串
+				 let hd3 = 99;
+				 console.log(typeof hd3.toString()); //string
+				 
+				 let arr = ['hdcms', '后盾人'];
+				 console.log(typeof arr.toString()); //string
+				 
+				 
+				 
+		</script>
+	</body>
+</html>

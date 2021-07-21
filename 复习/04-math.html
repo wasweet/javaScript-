@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 取极限值
+			// 使用 min 与 max 可以取得最小与最大值。
+			console.log(Math.max(1,2,3)) // 3
+			console.log(Math.min(1,2,3)) // 1
+			
+			// 使用apply 来从数组中取值
+			console.log(Math.max.apply(Math, [1,2,3]))
+			
+			/**
+			 * 舍入处理
+			 */
+			 // 取最接近的向上整数
+			 console.log(Math.ceil(1.1))  // 2
+			 // 得到最接近的向下整数
+			 console.log(Math.floor(1.9)) // 1
+			 // 四舍五入处理
+			 console.log(Math.round('1.4'))  // 1
+			 
+			 /**
+				* random
+					random 方法用于返回 >=0 且 <1 的随机数（包括0但不包括1）
+				* */
+				
+				const num1 = Math.floor(Math.random() * 5)
+				console.log(num1)  // 返回0~5的随机数，不包括5
+				
+				// 下面取2~5的随机数（不包括5）公式为：min+Math.floor(Math.random()*(Max-min))
+				const num2 = Math.floor(Math.random() * (5 - 2) + 2);
+				console.log(num2)
+				
+				// 下面取2~5的随机数（包括5）公式为：min+Math.floor(Math.random()*(Max-min+1))
+				const num3 = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+				console.log(num3)
+				
+				// 下面是随机点名的示例
+				let stus = ['小明', '张三', '王五', '爱情'];
+				let pos = Math.floor(Math.random() * stus.length);
+				console.log(stus[pos]);
+				
+				// 随机取第二到第三间的学生，即1~2的值
+				let stus = ['小明', '张三', '王五', '爱情'];
+				let pos = Math.floor(Math.random() * (3-1)) + 1;
+				console.log(stus[pos]);
+
+		</script>
+	</body>
+</html>

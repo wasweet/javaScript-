@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 声明日期
+			 * */
+			 // 获取当前日期时间
+			 let time = new Date()
+			 console.log(time)
+			 console.log(typeof time); //object
+			 console.log(time * 1); //获取时间戳
+			 
+			 //直接使用函数获取当前时间
+			 console.log(Date());
+			 console.log(typeof Date()); //string
+			 
+			 //获取当前时间戳单位毫秒
+			 console.log(Date.now());
+			 
+			 /**
+				* 计算脚本执行时间
+				* */ 
+			 const start = Date.now()
+			 //代码
+			 const end = Date.now()
+			 console.log(end - start);
+			 
+			 // 根据指定的日期与时间定义日期对象
+			 let now = new Date('2028-02-22 03:25:02');
+			 console.log(now);
+			 now = new Date(2028, 4, 5, 1, 22, 16);
+			 console.log(now);
+			 
+			 // 使用展示运算符处理更方便
+			 let info = [2020, 2, 20, 10, 15, 32];
+			 let date = new Date(...info);
+			 console.log(date);
+			 
+			 /**
+				* 类型转换
+				*/
+				// 将日期转为数值类型就是转为时间戳单位是毫秒
+				let hd = new Date("2020-2-22 10:33:12");
+				console.log(hd * 1);
+				console.log(Number(hd));
+				console.log(hd.valueOf())
+				console.log(date.getTime());
+				
+				// 将时间戳转换为标准日期的方法
+				const param = [1990, 2, 22, 13, 22, 19];
+				const date1 = new Date(...param);
+				const timestamp = date1.getTime();
+				console.log(timestamp);
+				console.log(new Date(timestamp));
+				
+				// 格式化输出日期
+				let time1 = new Date();
+				console.log(
+				  `${time1.getFullYear()}-${time1.getMonth()}-${time1.getDate()} ${time1.getHours()}:${time1.getMinutes()}:${time1.getSeconds()}`
+				);
+				
+				// 封装函数用于复用
+				function dateFormat(date, format = "YYYY-MM-DD HH:mm:ss") {
+				  const config = {
+				    YYYY: date.getFullYear(),
+				    MM: date.getMonth() + 1,
+				    DD: date.getDate(),
+				    HH: date.getHours(),
+				    mm: date.getMinutes(),
+				    ss: date.getSeconds()
+				  };
+				  for (const key in config) {
+				    format = format.replace(key, config[key]);
+				  }
+				  return format;
+				}
+				console.log(dateFormat(new Date(), "YYYY年MM月DD日"));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * Number
+			 * */
+			// 判断是否为整数
+			console.log(Number.isInteger('1.2')) //false
+
+			// 指定返回的小数位数可以四舍五入
+			console.log((10.666).toFixed('2')) //10.67
+
+			//类型转换
+			console.log(Number('houdunren')); //NaN
+			console.log(Number(true)); //1
+			console.log(Number(false)); //0
+			console.log(Number('9')); //9
+			console.log(Number([])); //0
+			console.log(Number([5])); //5
+			console.log(Number([5, 2])); //NaN
+			console.log(Number({})); //NaN
+			
+			/**
+			 * parseInt
+			 * */
+			 // 提取字符串开始去除空白后的数字转为整数。
+			console.log(parseInt('  99wasweat')) // 99
+			console.log(parseInt('1.56')) // 1
+			
+			/**
+			 * parseFloat
+			 * */
+			 // 转换字符串为浮点数，忽略字符串前面空白字符。
+			 console.log(parseFloat('  99wasweat')) // 99
+			 console.log(parseFloat('10.45')) // 10.45
+		</script>
+	</body>
+</html>
