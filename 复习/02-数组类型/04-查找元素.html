@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * indexOf
+			 * 使用 indexOf 从前向后查找元素出现的位置，如果找不到返回 -1。
+			 * 第二个参数用于指定查找开始位置
+			 * */
+			 let arr1 = [1,2,3,'wasweat'];
+			 console.log(arr1.indexOf('wasweat')) // 从前面查找 wasweat 出现的位置 3
+			 console.log(arr1.indexOf('wasweat',3)) //从 3 开始查找 
+			 
+			 /**
+				* lastIndexOf
+				*  lastIndexOf 从后向前查找元素出现的位置，如果找不到返回 -1。
+				* 第二个参数用于指定查找开始位置
+				* */
+				let arr2 = [1,2,3,'wasweat'];
+				console.log(arr2.lastIndexOf('wasweat')) // 3
+				
+				/**
+				 * includes
+				 * includes 查找字符串返回值是布尔类型更方便判断
+				 * */
+				 let arr3 = [7, 3, 2, 6];
+				 console.log(arr3.includes(6)); //true
+				 
+				 /**
+					* find
+					* find 方法找到后会把值返回出来,返回第一次找到的值，不继续查找
+					* */
+					let arr4 = ["hdcms", "houdunren", "hdcms"];
+					
+					let find1 = arr4.find(function(item) {
+					  return item == "hdcms";
+					});
+					
+					console.log(find); //hdcms
+					
+					// find 可以方便的查找引用类型
+					const user = [
+						{ name: "李四" }, 
+						{ name: "张三" },
+						{ name: "wasweat" },
+					];
+					const find2 = user.find(user => user.name = 'wasweat');
+					console.log(find2) // {name: "wasweat"}
+					
+					/**
+					 * findIndex
+					 * findIndex 与 find 的区别是返回索引值，参数也是 : 当前值，索引，操作数组。
+					 * */
+					 let arr5 = [7, 3, 2, '8', 2, 6];
+					 console.log(arr5.findIndex(function (v) {
+					 	return v == 8;
+					 })); //3
+		</script>
+	</body>
+</html>
