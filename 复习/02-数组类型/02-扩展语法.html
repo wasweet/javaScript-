@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 使用从0开始的索引来改变数组
+			let arr = [1, "wasweat", "hdcms"];
+			arr[1] = 'waswrat';
+			console.log(arr); //[1, "waswrat", "hdcms"]
+			
+			// 使用展示语法批量添加元素
+			let arr1 = [1,2,'wasweat'];
+			let arr2 = ['王子为'];
+			arr2.push(...arr1)
+			console.log(arr2)  // ["王子为", 1, 2, "wasweat"]
+			
+			/**
+			 * push
+			 * 压入元素，直接改变元数组，返回值为数组元素数量
+			 * */
+			 let arr3 = [1,2,'wasweat'];
+			 console.log(arr3.push('王子为'))  // 4
+			 console.log(arr3) // [1, 2, "wasweat", "王子为"]
+			 
+			 /**
+				* pop
+				* 从末尾弹出元素，直接改变元数组，返回值为弹出的元素
+				* */
+				let arr4 = [1,2,3,'wasweat'];
+				console.log(arr4.pop()) // wasweat
+				console.log(arr4)  // [1, 2, 3]
+				
+				
+				/**
+				 * shift
+				 * 从数组前面取出一个元素
+				 * */
+				 let arr5 = [1,2,3,'wasweat'];
+				 console.log(arr5.shift())  // 1
+				 console.log(arr5)  //  [2, 3, "wasweat"]
+				 
+				 
+				 /**
+					* unshift
+					* 从数组前面添加元素
+					*/
+				 let arr6 = [1,2,3,'wasweat'];
+				 console.log(arr6.unshift('王子为')) // 5
+				 console.log(arr6) //  ["王子为", 1, 2, 3, "wasweat"]
+				 
+				 /**
+					* fill
+					* 填充数组元素
+					* */
+					console.log(Array(4).fill("wasweat")); // ["wasweat", "wasweat", "wasweat", "wasweat"]
+					
+					// 指定填充位置
+					console.log([1, 2, 3, 4].fill("后盾人", 1, 2)); //[1, "后盾人", 3, 4]
+					
+					/**
+					 * slice
+					 * 使用 slice 方法从数组中截取部分元素组合成新数组（并不会改变原数组），不传第二个参数时截取到数组的最后元素。
+					 * */
+					 
+					 let arr7 = [1,2,3,'wasweat'];
+					 console.log(arr7.slice(2))  // [3, "wasweat"]
+					 console.log(arr7.slice(1,2))  // [2]
+					 
+					 
+					 /**
+						* splice
+						* 使用 splice 方法可以添加、删除、替换数组中的元素，会对原数组进行改变，返回值为删除的元素。			
+						*	删除数组元素第一个参数为从哪开始删除，第二个参数为删除的数量。
+						* */
+						
+						let arr8 = [1,2,3,'wasweat'];
+						console.log(arr8.splice(1,2))  // 返回删除的元素  [2, 3]
+						console.log(arr8)  // [1, "wasweat"]
+						
+						// 通过指定第三个参数来设置在删除位置添加的元素
+						let arr9 = [1,2,3,4,5,'wasweat'];
+						console.log(arr9.splice(1,3,'王子为','王东旭')) // [2, 3, 4]
+						console.log(arr9) // [1, "王子为", "王东旭", 5, "wasweat"]
+						
+						// 向末尾添加元素
+							let arr10 = [1,2,3,4,5,'wasweat'];
+							console.log(arr10.splice(arr10.length, 0, '王子为'))
+							console.log(arr10)  // [1, 2, 3, 4, 5, "wasweat", "王子为"]
+							
+							// 向数组前添加元素
+						let arr11 = [1,2,3,4,5,'wasweat'];
+						console.log(arr11.splice(0,0,'王子为'))
+						console.log(arr11)  // ["王子为", 1, 2, 3, 4, 5, "wasweat"]
+						
+						/**
+						 * 
+						 * 清空数组
+						 * 将数组值修改为[]可以清空数组，如果有多个引用时数组在内存中存在被其他变量引用。
+						 */
+						let user = [
+							{ name: "hdcms" },
+							{ name: "后盾人" },
+							];
+						let cms = user;
+						user = [];
+						console.log(user); // []
+						console.log(cms);
+						
+						// 将数组length设置为0也可以清空数组
+						let user1 = [
+							{ name: "hdcms" },
+							{ name: "后盾人" },
+							];
+						user1.length = 0;
+						console.log(user);  // []
+						
+						// 使用splice方法删除所有数组元素
+						let user2 = [
+							{ name: "hdcms" },
+							{ name: "后盾人" },
+							];
+						user2.splice(0,user2.length)
+							console.log(user2) // []
+							
+							
+						// 使用pop/shift删除所有元素，来清空数组
+						let user3 = [
+							{ name: "hdcms" },
+							{ name: "后盾人" },
+							];
+						while(user3.pop()) {
+							console.log(user3) // []
+						}
+		</script>
+	</body>
+</html>
