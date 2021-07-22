@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * keys
+			 * 通过迭代对象获取索引
+			 * */
+			 const arr1 = ["wasweat", "hdcms"];
+			 const keys = arr1.keys();
+			 console.log(keys.next());
+			 console.log(keys.next());
+			 // {value: 0, done: false}
+			 // {value: 1, done: false}
+			 
+			 // 获取数组所有键
+			 "use strict";
+			 const arr2 = ["a", "b", "c", "wasweat"];
+			 for(const key of arr2.keys()) {
+				 console.log(key) 
+			 }
+			 // 0
+			 // 1
+			 // 2
+			 // 3
+			 
+			 
+			 /**
+				* values
+				* 
+				* */
+				// 通过迭代对象获取值
+				const arr3 = ["wasweat", "hdcms"];
+				const values = arr3.values();
+				console.log(values.next());
+				console.log(values.next());
+				console.log(values.next());
+				// {value: "wasweat", done: false}
+				// {value: "hdcms", done: false}
+				// {value: undefined, done: true}
+				
+				// 获取数组的所有值
+				const arr4 = ["a", "b", "c", "wasweat"];
+				for (const value of arr4.values()) {
+					console.log(value)
+				}
+				// a
+				// b
+				// c
+				// wasweat
+				
+				/**
+				 * entries
+				 * 返回数组所有键值对
+				 * */
+				 	const arr5 = ["a", "b", "c", "wasweat"];
+					for (const [key,value] of arr5.entries()) {
+						console.log(key,value)
+					}
+					// 0 "a"
+					// 1 "b"
+					// 2 "c"
+					// 3 "wasweat"
+		</script>
+	</body>
+</html>
