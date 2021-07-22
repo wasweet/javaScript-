@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * for 循环遍历
+			 * */
+			let lessons = [
+				{title: '媒体查询响应式布局',category: 'css'},
+			  {title: 'FLEX 弹性盒模型',category: 'css'},
+				{title: 'MYSQL多表查询随意操作',category: 'mysql'}
+			];
+			for (let i = 0;i < lessons.length; i++) {
+				lessons[i] = `wasweat:${lessons[i].title}`
+			}
+			console.log(lessons)  //  ["wasweat:媒体查询响应式布局", "wasweat:FLEX 弹性盒模型", "wasweat:MYSQL多表查询随意操作"]
+			
+			/**
+			 * forEach
+			 * */
+			 let lessons2 = [
+			 	{title: '媒体查询响应式布局',category: 'css'},
+			   {title: 'FLEX 弹性盒模型',category: 'css'},
+			 	{title: 'MYSQL多表查询随意操作',category: 'mysql'}
+			 ];
+			 lessons2.forEach((item,index,array) => {
+				 item.title = item.title.substr(0,5) // 截取标签的五个字符 {title: "媒体查询响", category: "css"}
+				})																		//	   						{title: "FLEX ", category: "css"}
+																							//	  						 {title: "MYSQL", category: "mysql"}																		
+			 console.log(lessons2)
+			 
+			 /**
+				* for/in
+				* 遍历时的 key 值为数组的索引
+				* */
+				let lessons3 = [
+					{title: '媒体查询响应式布局',category: 'css'},
+				  {title: 'FLEX 弹性盒模型',category: 'css'},
+					{title: 'MYSQL多表查询随意操作',category: 'mysql'}
+				];
+				for(const key in lessons3) {
+					console.log(`标题:${lessons3[key].title}`)
+				}
+				// 标题:媒体查询响应式布局
+				// 标题:FLEX 弹性盒模型
+				// 标题:MYSQL多表查询随意操作
+				
+				
+				/**
+				 * for/of
+				 *  for/of 每次循环取其中的值而不是索引。
+				 * */
+				 let lessons4 = [
+				 	{title: '媒体查询响应式布局',category: 'css'},
+				   {title: 'FLEX 弹性盒模型',category: 'css'},
+				 	{title: 'MYSQL多表查询随意操作',category: 'mysql'}
+				 ];
+				 for(const item of lessons4) {
+					 console.log(`
+					 标题：${item.title},
+					 栏目：${item.category == 'css' ? '前端': '后端'}
+					 `)
+				 }
+				  // 标题：媒体查询响应式布局,
+				 	// 栏目：前端
+				 	// 标题：FLEX 弹性盒模型,
+				 	// 栏目：前端
+				 	// 标题：MYSQL多表查询随意操作,
+				 	// 栏目：后端
+					
+					// 取数组中的最大值
+					function maxArray(array) {
+						let max = array[0];
+						for (const item of array) {
+							max = max > item ? max : item
+						}
+						return max;
+					}
+					console.log(maxArray([1,2,5,9])); // 9
+		</script>
+	</body>
+</html>
