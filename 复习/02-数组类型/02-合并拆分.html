@@ -12,6 +12,35 @@
 			 // 使用join连接成字符串
 			 let arr1 = [1,2,3,'wasweat'];
 			 console.log(arr1.join('-'))  // 1-2-3-wasweat
-		</script>
+			 
+			 /**
+				* split
+				* split 方法用于将字符串分割成数组，类似join方法的反函数。
+				* */
+				let arr2 = '2,3,4,wasweat';
+				console.log(arr2.split()) // ["2,3,4,wasweat"]\
+				
+				/**
+				 * concat
+				 * concat方法用于连接两个或多个数组，元素是值类型的是复制操作，如果是引用类型还是指向同一对象
+				 * */
+				 let arr3 = [1,2,3];
+				 let arr4 = [4,5,6];
+				 let arr5 = ['wasweat'];
+				 console.log(arr3.concat(arr4,arr5)) // [1, 2, 3, 4, 5, 6, "wasweat"]
+				 console.log(...arr3,...arr4,...arr5) // 1 2 3 4 5 6 "wasweat"
+				 
+				 /**
+					* copyWithin
+					* array.copyWithin(target, start, end)
+					* target	必需。复制到指定目标索引位置。
+					* start	可选。元素复制的起始位置。
+					* end	可选。停止复制的索引位置 (默认为 array.length)。如果为负值，表示倒数。
+					* 
+					*  copyWithin 从数组中复制一部分到同数组中的另外位置。
+					* */
+					let arr6 = [1,2,3,'wasweat'];
+					console.log(arr6.copyWithin(3,0,1)) // [1, 2, 3, 1]
+ 		</script>
 	</body>
 </html>
