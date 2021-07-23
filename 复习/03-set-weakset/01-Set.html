@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Set 中是严格类型约束的，下面的数值1与字符串1属于两个不同的值
+			let set = new Set();
+			set.add(1);
+			set.add("1");
+			console.log(set); //Set(2) {1, "1"}
+			
+			// add 添加元素，不允许重复添加
+			let arr1 = new Set();
+			arr1.add('wasweat');
+			arr1.add('wasweat');
+			arr1.add('王子为');
+			console.log(arr1); // {"wasweat", "王子为"}
+			
+			/**
+			 * 获取数量
+			 * */
+			 let arr2 = new Set(['wasweat',1,2]);
+			 console.log(arr2.size) // 3
+			 
+			 /**
+				* 元素检测
+				* */
+				let arr3 = new Set();
+				arr3.add('wasweat');
+				console.log(arr3.has('wasweat')) // true
+				
+				/**
+				 * 删除元素
+				 * delete 删除一个
+				 * clear 清空所有
+				 * */
+				 let arr4 = new Set();
+				 arr4.add('wasweat');
+				 console.log(arr4.has('wasweat')) // true
+				 
+				 console.log(arr4.delete('wasweat')) // true
+				 console.log(arr4.values()) // []
+				 
+				 /**
+					* 数组转换
+					* 
+					*/
+				 let arr6 = new Set(['wasweat','王子为',1]);
+				 console.log([...arr6]) // ["wasweat", "王子为", 1]
+				 
+				 
+				 // 移除Set中大于5的数值
+				 let arr7 = new Set("123456789");
+				 arr7 = new Set([...arr7].filter(item => item < 5));
+				 console.log(arr7) // {"1", "2", "3", "4"}
+				 
+				 /**
+					* 去除重复
+					* */
+					const arr8 = [1, 2, 3, 5, 2, 3];
+					console.log([...new Set(arr8)]);  // [1, 2, 3, 5]
+					
+					/**
+					 * forEach 遍历数据
+					 * */
+					 let arr9 = [7, 6, 2, 8, 2, 6];
+					 let set1 = new Set(arr9);
+					 set1.forEach((item,key) => console.log(item,key))
+					 // 7 7
+					 // 6 6
+					 // 2 2
+					 // 8 8
+					 
+					 
+					 /**
+						* 交集
+						* */
+						let arr10 = new Set(['wasweat', '王梓薇']);
+						let arr11 = new Set(['wasweat', '王子为']);
+						let newSet = new Set(
+						[...arr10].filter(item => arr11.has(item))
+						)
+						console.log(newSet); // {"wasweat"}
+						
+						/**
+						 * 差集
+						 * 在集合a中出现但不在集合b中出现元素集合
+						 * */
+						 let arr12 = new Set(['wasweat', '王梓薇']);
+						 let arr13 = new Set(['wasweat', '王子为']);
+						 let newSet1 = new Set(
+						 [...arr10].filter(item => !arr11.has(item))
+						 )
+						 console.log(newSet1); // {"王梓薇"}
+						 
+						 /**
+							* 并集
+							* 将两个集合合并成一个新的集合，由于Set特性当然也不会产生重复元素。
+							*/
+						 let arr14 = new Set(['wasweat', '王梓薇']);
+						 let arr15 = new Set(['wasweat', '王子为']);
+						 let arr16 = new Set([...arr14,...arr15]);
+						 // let arr16 = [...arr14,...arr15]
+						 console.log(arr16)
+		</script>
+	</body>
+</html>
