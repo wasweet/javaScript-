@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * every
+			 * every 用于递归的检测元素，要所有元素操作都要返回真结果才为真。
+			 * */
+			 
+			 // 查看班级中同学的JS成绩是否都及格
+			 const user = [
+			   { name: "李四", js: 89 },
+			   { name: "马六", js: 55 },
+			   { name: "张三", js: 78 }
+			 ];
+			 const result = user.every(user => user.js >= 60);
+			 console.log(result) //false
+			 
+			 // 检查关键词
+			 const words = ['wasweat','王子为'];
+			 const title = 'wasweatdadada';
+			 let state = words.every(function(item,index,array) {
+				 return title.indexOf(item) >= 0;
+			 })
+			 if (state == false) console.log('标题必须包含所有关键词')
+			 
+			 
+			 /**
+				* some
+				* some 函数可以递归的检测元素，如果有一个返回true，表达式结果就是真。第一个参数为元素，第二个参数为索引，第三个参数为原数组。
+				* */
+				
+				// 检查关键词
+				const words1 = ['wasweat','王子为'];
+				const title1 = 'wasweatdadada';
+				let state1 = words1.some(function(item,index,array) {
+								 return title1.indexOf(item) >= 0;
+				})
+				if (state1 == false) console.log('标题含有违规关键词')
+				
+				
+				/**
+				 * filter
+				 * filter 可以过滤数据中元素
+				 * */
+				 let lessons = [
+				   {title: '媒体查询响应式布局',category: 'css'},
+				   {title: 'FLEX 弹性盒模型',category: 'css'},
+				   {title: 'MYSQL多表查询随意操作',category: 'mysql'}
+				 ];
+				 let cssLessons = lessons.filter(function(item,index,array) {
+					 if(item.category == 'css') {
+						 return true;
+					 }
+				 })
+				 console.log(cssLessons);
+				 // 0: {title: "媒体查询响应式布局", category: "css"}
+				 // 1: {title: "FLEX 弹性盒模型", category: "css"}
+				 
+				 /**
+					* map
+					* map 映射可以在数组的所有元素上应用函数，用于映射出新的值。
+					* */
+					// 获取数组所有标题组合的新数组
+					let lessons2 = [
+					  {title: '媒体查询响应式布局',category: 'css'},
+					  {title: 'FLEX 弹性盒模型',category: 'css'},
+					  {title: 'MYSQL多表查询随意操作',category: 'mysql'}
+					];
+					console.log(lessons2.map(item => item.title)) // ["媒体查询响应式布局", "FLEX 弹性盒模型", "MYSQL多表查询随意操作"]
+					
+					lessons2.map(function(item,index,array) {
+						item.title = `[wasweat]${item.title}`;
+						return item;
+					})
+					console.log(lessons2)
+					// {title: "[wasweat]媒体查询响应式布局", category: "css"}
+					//  {title: "[wasweat]FLEX 弹性盒模型", category: "css"}
+					// {title: "[wasweat]MYSQL多表查询随意操作", category: "mysql"}
+					
+					
+					/**
+					 * reduce
+					 * reduce 与 reduceRight 函数可以迭代数组的所有元素，reduce 从前开始 reduceRight 从后面开始。
+					 * 第一个参数是执行函数，第二个参数为初始值
+					 * 传入第二个参数时将所有元素循环一遍
+					 * 不传第二个参数时从第二个元素开始循环
+					 * prev	上次调用回调函数返回的结果
+						cur	当前的元素值
+						index	当前的索引
+						array	原数组
+					 * */
+					 
+					 // 统计元素出现的次数
+					 function countArrayELem(array,elem) {
+						 return array.reduce((total,cur) => (total += cur == elem ? 1 : 0),0);
+					 }
+					 let numbers = [1, 2, 3, 1, 5];
+					 console.log(countArrayELem(numbers, 1)); //2
+					 
+					 // 取数组中的最大值
+					 function arrayMax(array) {
+						 return array.reduce(
+						 (max,elem) => (max > elem ? max : elem),array[0]
+						 );
+					 }
+					 console.log(arrayMax([1, 3, 2, 9])); // 9
+					 
+					 // 取价格最高的商品
+					 let cart = [
+					   { name: "iphone", price: 12000 },
+					   { name: "imac", price: 25000 },
+					   { name: "ipad", price: 3600 }
+					 ];
+					 function maxPrice (array) {
+						 return array.reduce(
+						 (goods,elem) => (goods.price > elem.price ? goods : elem),array[0]
+						 );
+					 }
+					 console.log(maxPrice(cart)); // {name: "imac", price: 25000}
+		</script>
+	</body>
+</html>
