@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 声明
+			 * */
+			 let map = new Map([
+				 ['wasweat','王子为'],
+				 [1,2]
+			 ]);
+			 console.log(map)
+			 // {"wasweat" => "王子为"}
+			 // {1 => 2}
+			 
+			 // 使用set 方法添加元素，支持链式操作
+			 let arr1 = new Map();
+			 let obj =  {
+				 name:'wasweat'
+			 }
+			 arr1.set(obj,18).set('id',20)
+			 console.log(arr1)
+			 
+			 /**
+				* 读取元素
+				* */
+				let arr2 = new Map();
+				arr2.set(obj,'wasweet111');
+				arr2.set('age',18);
+				console.log(arr2.get(obj))
+				
+				
+				/**
+				 * 删除元素
+				 * delete 删除单个
+				 * clear 清空所有
+				 * */
+				 
+				 
+				 
+				 /**
+					* 遍历数据
+					*/
+				 let arr3 = new Map([["wasweat", "王子为"], ["hdcms", "开源系统"]]);
+				 
+				 console.log(arr3.keys())  // MapIterator {"wasweat", "hdcms"}
+				 console.log(arr3.values())// MapIterator {"王子为", "开源系统"}
+				 console.log(arr3.entries())// MapIterator {"wasweat" => "王子为", "hdcms" => "开源系统"}
+				 
+				 // 可以使用keys/values 函数遍历键与值
+				 for (const keys of arr3.keys()) {
+					 console.log(keys)
+				 }
+				 for (const value of arr3.values()) {
+					 console.log(value)
+				 }
+				 
+				 // 使用for/of遍历操作，直接遍历Map 等同于使用entries() 函数
+				 for (const [key,value] of arr3) {
+					 console.log(key,value)
+				 }
+				 
+				 // 使用forEach遍历操作
+				 arr3.forEach((key,value) => console.log(key,value))
+		</script>
+	</body>
+</html>
