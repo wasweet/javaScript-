@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 函数调用
+			 * */
+			 // 全局环境下this就是window对象的引用
+			   console.log(this == window); //true
+				 
+				 
+			/**
+			 * 方法调用
+			 * */
+			 // 对象字面量
+			 // 下例中的 hd 函数不属于对象方法所以指向 window
+			 // show 属于对象方法执向 user 对象
+			 let user = {
+				 name: 'wasweat',
+				 show() {
+					 console.log(this.name);
+						function hd() {
+							console.log(this) //Window 
+					 }
+					 hd()
+				 }
+			 }
+			 user.show() // wasweat
+			 
+			 
+			 // 构造函数
+			 // 构造函数主要用来生成对象，里面的this默认就是指当前对象
+			 function User() {
+				 this.name = 'wasweat';
+				 this.show = function() {
+					 console.log(this) // User {name: "wasweat", show: ƒ}
+					 return this.name
+				 }
+			 }
+			 let hd = new User();
+			 console.log(hd.show()); //wasweat
+
+
+			let Lesson = {
+				site: "后盾人",
+				lists: ["js", "css", "mysql"],
+				show() {
+					// const This = this;
+					return this.lists.map(function(title) {
+						// console.log(This) // lesson
+						console.log(this) // window
+						return `${this.site}-${title}`;
+					}, this);
+				}
+			};
+			console.log(Lesson.show()); // ["后盾人-js", "后盾人-css", "后盾人-mysql"]
+			
+			
+			
+			/**
+			 * 箭头函数的this
+			 * 箭头函数没有this, 也可以理解为箭头函数中的this 会继承定义函数时的上下文，可以理解为和外层函数指向同一个this。
+			 * 如果想使用函数定义时的上下文中的this，那就使用箭头函数
+			 * */
+			 let Lesson1 = {
+			 	site: "后盾人",
+			 	lists: ["js", "css", "mysql"],
+			 	show() {
+			 		// const This = this;
+			 		return this.lists.map((title) =>{
+			 			// console.log(This) // lesson
+			 			console.log(this) // {site: "后盾人", lists: Array(3), show: ƒ}
+			 			return `${this.site}-${title}`;
+			 		});
+			 	}
+			 };
+			 console.log(Lesson1.show()); // ["后盾人-js", "后盾人-css", "后盾人-mysql"]
+			 
+			 
+		</script>
+	</body>
+</html>

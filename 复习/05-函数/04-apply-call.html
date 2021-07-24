@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			 * {
+			    padding: 0;
+			    margin: 0;
+			  }
+			
+			  body {
+			    width: 100vw;
+			    height: 100vh;
+			    font-size: 3em;
+			    padding: 30px;
+			    transition: 2s;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    background: #34495e;
+			    color: #34495e;
+			  }
+		</style>
+	</head>
+	<body>
+		<button type="button">wasweat</button>
+		<button type="button">王子为</button>
+		<script type="text/javascript">
+			/**
+			 * 
+			 * apply/call
+			 * call与apply 用于显示的设置函数的上下文，两个方法作用一样都是将对象绑定到this，只是在传递参数上有所不同。
+			 * apply 用数组传参
+				 call 需要分别传参
+				 与 bind 不同 call/apply 会立即执行函数
+			 */
+			 let lisi = {
+			     name: '李四'
+			 };
+			 let wangwu = {
+			     name: '王五'
+			 };
+			 function User(web,url) {
+				 console.log(web + url + this.name)
+			 }
+			 User.call(lisi,'wasweat','wasweat.com') // wasweatwasweat.com李四
+			 User.apply(wangwu,['wasweat','wasweat.com']) // wasweatwasweat.com王五
+			 
+			 
+			 function show () {
+				 alert(this.innerHTML)
+			 }
+			 let buttons = document.querySelectorAll('button');
+			 for (let i = 0;i<buttons.length;i++) {
+				 buttons[i].addEventListener('click',(event) => {
+					 show.call(event.target)
+				 })
+			 }
+			 
+			 function Color(elem) {
+				 this.elem = elem;
+				 this.color = ["#74b9ff", "#ffeaa7", "#fab1a0", "#fd79a8"];
+				 this.run = function() {
+					 setInterval(function() {
+						 let pos = Math.floor(Math.random()*this.color.length)
+						 // console.log(this)  // Color {elem: body, color: Array(4), run: ƒ}
+						 this.elem.style.background = this.color[pos]
+					 }.bind(this),1000)
+				 }
+			 }
+			  let obj = new Color(document.body);
+			  obj.run();
+		</script>
+	</body>
+</html>

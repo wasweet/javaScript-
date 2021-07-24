@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let arr1 = new Function("title", "console.log(title)");
+			arr1('wasweat');
+			
+			let user = {
+				name: null,
+				getName(name) {
+					return this.name ;
+				},
+				setName(value) {
+					this.name = value;
+				}
+			}
+			user.setName('wasweat')
+			console.log(user.getName()) // wasweat
+			
+			// 全局函数会声明在window对象中
+			console.log(window.screenX)
+			
+			// 自己定义了 screenX 函数后，就会覆盖全局的
+			function screenX() {
+				console.log('wasweat')
+			}
+			console.log(window.screenX)
+			
+			// 使用let/const时不会压入window
+			let hd = function() {
+				console.log('wasweat');
+			}
+			window.hd() // window.hd is not a function
+		</script>
+	</body>
+</html>
