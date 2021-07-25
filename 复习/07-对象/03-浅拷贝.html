@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/**
+		 * 对象拷贝
+		 * 对象赋值时复制的内存地址，所以一个对象的改变直接影响另一个
+		 * */
+		 let obj = {
+		   name: '后盾人',
+		   user: {
+		   	name: 'hdcms'
+		   }
+		 }
+		 let a = obj;
+		 let b= obj;
+		 obj.name = 'wasweat';
+		 console.log(a.name) // wasweat
+		 console.log(b.name) // wasweat
+		 console.log(obj.name) // wasweat
+		
+		
+		/**
+		 * 浅拷贝
+		 * */
+		 
+			let obj1= {
+			  name: "wasweat"
+			};
+			let arr2 = { ...obj1};
+			arr2.name = '王子为';
+			console.log(arr2.name) // 王子为
+			console.log(obj1.name) // wasweat
+			
+			// 使用for/in执行对象拷贝
+			let arr3 = {};
+			for (const key in obj1) {
+				arr3[obj] = obj1[key]
+			}
+			arr3.name = 'asd';
+			console.log(arr3.name); // asd
+			console.log(obj1.name); // wasweat
+			
+		</script>
+	</body>
+</html>

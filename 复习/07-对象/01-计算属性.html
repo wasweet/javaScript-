@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let id = 0;
+			const user = {
+			  [`id-${id++}`]: id,
+			  [`id-${id++}`]: id,
+			  [`id-${id++}`]: id
+			};
+			console.log(user);
+			
+			//使用计算属性为文章定义键名
+			const lessons = [
+			  {
+			    title: "媒体查询响应式布局",
+			    category: "css"
+			  },
+			  {
+			    title: "FLEX 弹性盒模型",
+			    category: "css"
+			  },
+			  {
+			    title: "MYSQL多表查询随意操作",
+			    category: "mysql"
+			  }
+			];
+			let lessonObj = lessons.reduce((obj,cur,index) => {
+				obj[`${cur['category']}-${index}`] = cur;
+				return obj;
+			},{}) 
+			console.log(lessonObj) // {css-0: {…}, css-1: {…}, mysql-2: {…}}
+		</script>
+	</body>
+</html>

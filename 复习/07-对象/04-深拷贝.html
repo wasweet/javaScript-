@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let obj = {
+				name:'wasweat',
+				user: {
+					name :'王子为'
+				},
+				arr:[]
+			}
+			
+			// let arr = {};
+			// for (const key in obj) {
+			// 	arr[key] = obj[key]
+			// }
+			// arr.user.name = 'asd'
+			// // 此时 user.name 还是一个对象 复制的是地址 所以一个改变 都会改变
+			// console.log(JSON.stringify(arr, null, 2)) 
+			// console.log(JSON.stringify(obj, null, 2))
+			
+			/**
+			 * 递归处理 深拷贝
+			 */
+			// 只处理对象的
+			// function copy(data) {
+			// 	let obj1 = {}
+			// 	 for (const key in data) {
+			// 		 // 判断类型是不是 object 类型  
+			// 		 obj1[key] = typeof data[key] === 'object' ? copy(data[key]) : data[key]
+			// 	 }
+			// 	 return obj1;
+			// }
+			
+			// 对象和数组的
+			function copy(data) {
+				let obj1 = data instanceof Array ? [] : {};
+			 for (const [key, value] of Object.entries(data)) {
+					obj1[key] = typeof value === 'object' ? copy(value) : value
+				}
+				 return obj1;
+			}
+			
+			let obj1 = copy(obj)
+			
+			obj1.name = 'asd'
+			obj1.user.name = 'was'
+			obj1.arr.push('zxc')
+			console.log(JSON.stringify(obj1,null,2))
+			console.log(JSON.stringify(obj,null,2))
+		</script>
+	</body>
+</html>

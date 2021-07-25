@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let User = {
+				name : 'wasweat',
+				age: 18
+			}
+			console.log(Object.keys(User)) // name age
+			console.log(Object.values(User))  //  ["wasweat", 18]
+			console.log(Object.entries(User))
+			
+			/**
+			 * for.in 遍历对象属性
+			 * */
+			 for (let key in User) {
+					console.log(key) // name age
+			 }
+			 
+			 /**
+				* for/of用于遍历迭代对象，不能直接操作对象。但Object对象的keys/方法返回的是迭代对象。
+				* */
+				for (let key of Object.keys(User)) {
+					console.log(key) // name age
+				}
+				
+				for (let value of Object.values(User)) {
+					console.log(value) // wasweat 18
+				}
+				
+				
+				/**
+				 * entries
+				 * 同时获取属性名与值
+				 */
+				for (let [key,value] of Object.entries(User)) {
+					console.log(key,value)
+				}
+				
+				
+				/**
+				 * 添加元素DOM练习
+				 * */
+				 let lessons = [
+				   { name: "js", click: 23 },
+				   { name: "node", click: 192 }
+				 ];
+				 let ul = document.createElement('ul');
+				 for (let value of lessons) {
+						let li = document.createElement('li');
+						li.innerHTML = `课程${value.name},点击数${value.click}`
+						ul.appendChild(li);
+				 }
+				 document.body.appendChild(ul);
+		</script>
+	</body>
+</html>
