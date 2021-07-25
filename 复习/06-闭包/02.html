@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let lessons = [
+			  {
+			    title: "媒体查询响应式布局",
+			    click: 89,
+			    price: 12
+			  },
+			  {
+			    title: "FLEX 弹性盒模型",
+			    click: 45,
+			    price: 120
+			  },
+			  {
+			    title: "GRID 栅格系统",
+			    click: 19,
+			    price: 67
+			  },
+			  {
+			    title: "盒子模型详解",
+			    click: 29,
+			    price: 300
+			  }
+			];
+			
+			function order(field) {
+			  return (a, b) => (a[field] > b[field] ? 1 : -1);
+			}
+			console.table(lessons.sort(order('price')))
+		</script>
+	</body>
+</html>
