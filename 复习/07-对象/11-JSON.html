@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/**
+		 * 使用 JSON.parse 将字符串 json 解析成对象
+		 * */
+			let hd = {
+			  "title": "后盾人",
+			  "url": "houdunren.com",
+			  "teacher": {
+			  	"name": "向军大叔",
+			  }
+			}
+			let jsonStr = JSON.stringify(hd);
+			console.log(JSON.parse(jsonStr));
+		</script>
+	</body>
+</html>

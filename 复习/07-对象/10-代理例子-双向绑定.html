@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" v-model="title" />
+		<input type="text" v-model="title" />
+		<h2 v-bind="title"></h2>
+		
+		<script type="text/javascript">
+			function View() {
+				let proxy = new Proxy({}, {
+					set(obj,property,value){
+						// console.log(value)
+						document.querySelectorAll(`[v-model=${property}]`).forEach(item => {
+							item.value = value;
+						})
+						document.querySelectorAll(`[v-bind=${property}]`).forEach(item => {
+							item.innerHTML = value;
+						})
+					},
+					get(obj,property){}
+				})
+				this.info = function() {
+					const btn = document.querySelectorAll('[v-model]');
+					btn.forEach(item => {
+						item.addEventListener('keyup',function() {
+							proxy[this.getAttribute('v-model')] = this.value
+						})
+					})
+				}
+			}
+			new View().info();
+		</script>
+	</body>
+</html>

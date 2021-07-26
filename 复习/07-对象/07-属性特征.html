@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 使用 Object.getOwnPropertyDescriptor查看对象属性的描述。
+			const user = {
+				name:'wasweat',
+				age:18
+			}
+			let desc = Object.getOwnPropertyDescriptor(user,'name');
+			console.log(JSON.stringify(desc,null,2))
+			// {
+			//   "value": "wasweat",    对象属性的默认值
+			//   "writable": true,      对象属性是否可修改
+			//   "enumerable": true,    对象属性是否可通过for-in循环，或Object.keys() 读取
+			//   "configurable": true  能否使用delete、能否需改属性特性、或能否修改访问器属性
+			// }
+			
+			
+			
+			// 使用Object.defineProperty 方法修改属性特性
+			Object.defineProperty(user,'name', {
+					value: "王子为",
+				  writable: false,
+				  enumerable: false,
+				  configurable: false
+			})
+			
+			
+			/**
+			 * Object.preventExtensions 禁止向对象添加属性
+			 * */ 
+			// const user = {
+			//   name: "向军"
+			// };
+			// Object.preventExtensions(user);
+			// user.age = 18; //Error
+			
+			/**
+			 * 
+			 * Object.seal()方法封闭一个对象,阻止添加新属性并将所有现有属性标记为 configurable: false
+			 */
+			
+			/**
+			 * Object.freeze 冻结对象后不允许添加、删除、修改属性，writable、configurable都标记为false
+			 * */
+		</script>
+	</body>
+</html>
