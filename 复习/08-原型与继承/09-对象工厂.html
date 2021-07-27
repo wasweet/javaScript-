@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 在原型继承基础上，将对象的生成使用函数完成，并在函数内部为对象添加属性或方法。
+			 * */
+			 
+			 function User(name, age) {
+			   this.name = name;
+			   this.age = age;
+			 }
+			 User.prototype.show = function() {
+			   console.log(this.name, this.age);
+			 };
+			 
+			 function Admin(name, age) {
+			   let instance = Object.create(User.prototype);
+			   User.call(instance, name, age);
+			   instance.role=function(){
+			     console.log('admin.role');
+			   }
+			   return instance;
+			 }
+			 let hd = Admin("后盾人", 19);
+			 hd.show();
+			 hd.role()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 原型的继承，而不是改变构造函数的原型
+			 * */
+			 
+			 /**
+			 * 不能使用以下方式操作，因为这样会改变User的原型方法，这不是继承，这是改变原型
+			 * */
+			 // function Admin() {
+				//  Admin.prototype.role = function() {};
+			 // }
+			 // function User() {
+				//  User.prototype = Admin.prototype
+				//  User.prototype.role = function(){
+				//  					 console.log('user.show')
+				//  }
+			 // }
+			 
+			 
+			 /**
+				* 正确做法
+				* */
+				function Admin() {}
+				
+			 function User() {}
+			 // 两种写法  Object.create 属于新建了一个对象 新建的对象原型指向Admin.prototype
+			 // User.prototype.__proto__ = Admin.prototype 
+			 User.prototype = Object.create(Admin.prototype)
+			 User.prototype.show = function(){
+			 					 console.log('user.show')
+			 }
+			 
+			 function Player() {}
+			 Player.prototype.__proto__ = Admin.prototype
+			 Player.prototype.show = function(){
+			 					 console.log('player.show')
+			 }
+			 
+			 let a = new User()
+			 a.show() // user.show
+			 
+			 let b = new Player()
+			 b.show() // player.show
+			 
+			 
+			
+		</script>
+	</body>
+</html>

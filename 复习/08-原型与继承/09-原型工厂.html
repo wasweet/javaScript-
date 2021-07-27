@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 原型工厂
+			 * 原型工厂是将继承的过程封装，使用继承业务简单化。
+			 * */
+			 function Admin() {}
+			 function User() {}
+			 User.prototype.show = function(){
+				 console.log('wasweat')
+			 }
+			 // 封装函数 实现继承
+			 function extend(sub, sup) {
+				 sub.prototype = Object.create(sup.prototype);
+				 sub.prototype.constructor = sub;
+			 }
+			 
+			 extend(Admin,User)
+			 
+			 let a = new Admin();
+			 a.show() //wasweat
+		</script>
+	</body>
+</html>
