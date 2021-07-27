@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let arr1 = {
+				name:'wasweat'
+			}
+			let parent = {
+				name:'parent',
+				show() {
+					console.log('parent:'+ this.name)
+				}
+			}
+			// 设置原型
+			Object.setPrototypeOf(arr1,parent)
+			arr1.show()
+			parent.show()
+			
+			// 获取原型
+			console.log(Object.getPrototypeOf(arr1));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 属性遍历
+			 * 使用in 检测原型链上是否存在属性，
+			 * 使用 hasOwnProperty 只检测当前对象
+			 */
+			let a = {name:'wasweat'}
+			let b = {age: 18}
+			
+			Object.setPrototypeOf(a,b)
+			
+			for (let key in a) {
+				console.log(key) // name age
+				if (a.hasOwnProperty(key)) {
+				    console.log(key); // name
+				  }
+			}
+			
+		</script>
+	</body>
+</html>

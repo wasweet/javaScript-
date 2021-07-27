@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		// user 函数有 两个原型 __proto__, prototype 
+		// 函数拥有多个原型，prototype 用于实例对象使用，__proto__用于函数对象使用
+		
+			function user() {}
+			console.dir(user)
+			
+			user.prototype.show = function () {
+				console.log('user.prototype')
+			}
+			user.__proto__.view = function () {
+				console.log('user.__proto__.view')
+			}
+			// hd 为 user 的实例对象 能访问到 user 的 protype
+			let hd = new user()
+			console.dir(hd)
+			hd.show()
+			user.view()
+			console.log(user.prototype === hd.__proto__) // true
+			
+		</script>
+	</body>
+</html>

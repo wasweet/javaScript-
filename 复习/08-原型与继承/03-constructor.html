@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// constructor存在于prototype原型中，用于指向构建函数的引用。
+			// 通过原型找到构造函数
+			function user(name) {
+				this.name = name
+			}
+			console.log(user.prototype.constructor == user)  // true
+			
+		let arr = new user.prototype.constructor('wasweat')
+		console.log(arr) // user {name: "wasweat"}
+		
+		
+		
+		/**
+		 * 使用isPrototypeOf检测一个对象是否是另一个对象的原型链中
+		 * 
+		 */
+		let a = {}
+		let b = {}
+		let c = {}
+		// 将 b 设置为 a 的原型链（父级）
+		Object.setPrototypeOf(a,b)
+		Object.setPrototypeOf(b,c)
+		console.log(b.isPrototypeOf(a)) // true
+		console.log(c.isPrototypeOf(a)) // true
+		console.log(c.isPrototypeOf(b)) // true
+		</script>
+	</body>
+</html>
