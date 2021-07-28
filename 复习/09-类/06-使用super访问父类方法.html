@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		let data = [
+		  { name: "js", price: 100 },
+		  { name: "mysql", price: 212 },
+		  { name: "vue.js", price: 98 }
+		];
+		
+			class Controller {
+				sum() {
+					return this.data.reduce((t,c) => t + c.price, 0)
+				}
+			}
+			class Lesson extends Controller {
+				constructor(lessons) {
+				    super();
+						this.data = lessons
+				}
+				info() {
+					return {
+						totalPrice: super.sum(),
+						// data: this.data
+					}
+				}
+			}
+			const hd = new Lesson(data)
+			console.log(hd.info())
+		</script>
+	</body>
+</html>

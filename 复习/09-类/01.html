@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function Hd(name) {
+		  this.name = name;
+		}
+		Hd.prototype.show = function() {
+		  function test() {
+		  	//非严格模式输出 Window
+		    console.log(this);
+		  }
+		  test();
+		};
+		let obj = new Hd("后盾人");
+		obj.show();
+		
+		
+			class User {
+			  constructor(name) {
+			    this.name = name;
+			  }
+			  show() {
+			    function test() {
+			    	//严格模式下输出 undefined
+			      console.log(this);
+			    }
+			    test();
+			  }
+			}
+			let xj = new User("向军");
+			xj.show();
+		</script>
+	</body>
+</html>

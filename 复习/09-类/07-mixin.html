@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		const data = [
+		  { name: "js", price: 100 },
+		  { name: "mysql", price: 212 },
+		  { name: "vue.js", price: 98 }
+		];
+		let Tool = {
+			max(key) {
+				return this.data.sort((a,b) => b[key]-a[key])[0];
+			}
+		}
+			class Lesson {
+				constructor(lessons) {
+				    this.lessons = lessons
+				}
+				get data() {
+					return this.lessons
+				}
+			}
+			Object.assign(Lesson.prototype,Tool)
+			let hd = new Lesson(data);
+			console.log(hd.max('price'))
+		</script>
+	</body>
+</html>

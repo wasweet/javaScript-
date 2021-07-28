@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Request {
+				constructor(data) {
+				    this._host = data;
+				}
+				set host(url) {
+					if(!/^https?:\/\//i.test(url)){
+						throw new error('地址错误');
+					}
+					this._host = url;
+				}
+				get host() {
+					return this._host
+				}
+			}
+			let hd = new Request('http://www.baidu.com');
+			hd.host = 'http://asd.com';
+			console.log(hd.host)
+		</script>
+	</body>
+</html>

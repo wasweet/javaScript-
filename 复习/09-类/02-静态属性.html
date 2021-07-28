@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/**
+		 * 函数当中的静态属性
+		 * */
+			function User(name) {
+				this.name = name
+			}
+			// 函数当中的静态属性
+			User.age = 18;
+			let hd = new User('wasweat')
+			console.log(hd)
+			console.log(User.age)
+			
+			/**
+			 * 类当中的静态属性
+			 * 在 class 中为属性添加 static 关键字即声明为静态属性
+			 * */
+			 class Request	 {
+				 static HOST = 'http://www.baidu.com';
+				 query(api) {
+					 return Request.HOST + `/${api}`
+				 }
+			 }
+			 let obj = new Request();
+			 console.log(obj.query('/article')) // http://www.baidu.com//article
+			 console.dir(Request)
+		</script>
+	</body>
+</html>
