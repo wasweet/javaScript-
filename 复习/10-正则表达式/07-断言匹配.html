@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<main>
+			 后盾人不断分享视频教程，学习后盾人教程提升编程能力。
+		</main>
+		<input type="text" name="username" />
+		<script type="text/javascript">
+			// (?=exp)
+			// 零宽先行断言 ?=exp 匹配后面为 exp 的内容
+			// 把后面是教程 的后盾人汉字加上链接
+			const main = document.querySelector('main')
+			const reg = /后盾人(?=教程)/g;
+			main.innerHTML = main.innerHTML.replace(reg, v => `<a href="https://houdunren.com">${v}</a>`)
+			
+			
+			//(?<=exp)
+			//零宽后行断言 ?<=exp 匹配前面为 exp 的内容
+			// 匹配前后都是数字的内容
+			let hd = "houdunren789hdcms666";
+			let reg1 = /(?<=\d)[a-z]+(?=\d+)/i;
+			console.log(hd.match(reg1));
+			
+			
+			//(?!exp)
+			// 零宽负向先行断言 后面不能出现 exp 指定的内容	
+			// 下例为用户名中不能出现wasweat
+	const input = document.querySelector(`[name="username"]`);
+	  input.addEventListener("keyup", function() {
+	    const reg = /^(?!.*wasweat.*)[a-z]{8,10}$/i;
+	    console.log(this.value.match(reg));
+	  });
+	
+	// (?<!exp)
+	// 零宽负向后行断言 前面不能出现exp指定的内容
+	// 获取前面不是数字的字符
+	let hd = "hdcms99houdunren";
+	let reg = /(?<!\d+)[a-z]+/i;
+	console.log(reg.exec(hd)); //hdcms
+		</script>
+	</body>
+</html>

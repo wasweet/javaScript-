@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * search
+			 * search() 方法用于检索字符串中指定的子字符串，也可以使用正则表达式搜索，返回值为索引位置
+			 * */
+			 let str = "wasweat.com";
+			 console.log(str.search("com"));
+			 // 使用正则表达式搜索
+			 console.log(str.search(/\.com/i));
+			 
+			 
+			 /**
+				* match
+				* 
+				* */
+				let hd = "houdunren";
+				let res = hd.match(/u/);
+				console.log(res);
+				console.log(res[0]); //匹配的结果
+				console.log(res[index]); //出现的位置
+
+		</script>
+	</body>
+</html>

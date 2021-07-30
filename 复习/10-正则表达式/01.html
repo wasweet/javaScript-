@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 选择符
+			 * | 这个符号带表选择修释符，也就是 | 左右两侧有一个匹配到就可以。
+			 * */
+			 let hd = 'wasweat';
+			 console.log(/a|q/.test(hd)) // true
+			 
+			 /**
+				* 字符边界
+				* 起始 ^
+				* 结束 $
+				* */
+				const obj1 = 'www.baidu.com';
+				console.log(/^www/.test(obj1)) // 必须以www开头 true
+				console.log(/\.com$/.test(obj1)) // 必须以.com结尾 true
+				
+				
+				/**
+				 * 元子字符
+				 * 元字符是正则表达式中的最小元素，只代表单一（一个）字符
+				 * \d 匹配任意一个数字 [0-9]
+				 * \D 与除了数字以外的任何一个字符匹配 [^0-9]
+				 * \w 与任意一个英文字母,数字或下划线匹配 [a-zA-Z]
+				 * \W 除了字母,数字或下划线外与任何字符匹配 [^a-zA-Z]
+				 * \s 任意一个空白字符匹配，如空格，制表符\t，换行符\n 
+				 * \S 除了空白符外任意一个字符匹配
+				 * */
+				 // 匹配任意数字
+				 let obj2 = 'wasweat 2021';
+					console.log(obj2.match(/\d/g))  // ["2", "0", "2", "1"]
+				// 匹配电话
+				let obj3 = `
+				张三:010-99999999,李四:020-88888888
+				`
+				let obj4 = obj3.match(/\d{3}-\d{7,8}/g)
+				console.log(obj4) //  ["010-99999999", "020-88888888"]
+				
+				//匹配人名
+				let obj5 = obj3.match(/[^:\d,-\s]+/g)
+				console.log(obj5) //  ["张三", "李四"]
+		</script>
+	</body>
+</html>

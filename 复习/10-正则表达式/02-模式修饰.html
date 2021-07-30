@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			// i	不区分大小写字母的匹配
+			// g	全局搜索所有匹配内容
+			// m	视为多行
+			// s	视为单行忽略换行符，使用. 可以匹配所有字符
+			// y	从 regexp.lastIndex 开始匹配
+			// u	正确处理四个字符的 UTF-16 编码
+			
+			
+			/**
+			 * \m
+			 * */
+			 let hd = `
+			   #1 js,200元 #
+			   #2 php,300元 #
+			   #9 houdunren.com # 后盾人
+			   #3 node.js,180元 #
+			 `;
+			 // [{name:'js',price:'200元'}]
+			 let lessons = hd.match(/^\s*#\d+\s+.+\s+#$/gm).map(v => {
+				 v = v.replace(/\s*#\d+\s*/, "").replace(/\s+#/, "");
+				  [name, price] = v.split(",");
+				  return { name, price };
+			 })
+			 console.log(JSON.stringify(lessons, null, 2));
+			 
+			 /**
+				* u
+				* 每个字符都有属性，如 L 属性表示是字母，P 表示标点符号，需要结合 u 模式才有效。
+				* 其他属性简写可以访问 属性的别名 (opens new window)网站查看。
+				* 字符也有unicode文字系统属性 Script=文字系统，下面是使用 \p{sc=Han} 获取中文字符 han为中文系统，其他语言请查看 文字语言表
+				* */
+				//使用\p{L}属性匹配字母
+				let hd = "houdunren2010.不断发布教程，加油！";
+				console.log(hd.match(/\p{L}+/u));
+				
+				//使用\p{P}属性匹配标点
+				console.log(hd.match(/\p{P}+/gu));
+		</script>
+	</body>
+</html>

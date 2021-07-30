@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let hd = `
+			  <h1>houdunren</h1>
+			  <span>后盾人</span>
+			  <h2>hdcms</h2>
+			`;
+			
+			console.table(hd.match(/<(h[1-6])[\s\S]*<\/\1>/g));
+			
+			
+			let hd1 = `admin@houdunren.coms.cn`;
+			let reg = /^[\w]+@([\w]+\.)+(org|com|cc|cn)$/;
+			console.log(hd1.match(reg));
+		</script>
+	</body>
+</html>
