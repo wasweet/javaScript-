@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function timeout(time) {
+				return new Promise(resolve => {
+					setTimeout(resolve,time)
+				})
+			}
+			timeout(1000).then(() => {
+				console.log('1秒后执行')
+				return timeout(2000);
+			}).then(() => {
+				console.log('2秒后执行')
+			})
+		</script>
+	</body>
+</html>

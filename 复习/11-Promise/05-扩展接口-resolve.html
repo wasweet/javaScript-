@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * Promise.resolve
+			 * 使用 promise.resolve 方法可以快速的返回一个promise对象
+			 * */
+			 Promise.resolve('wasweat').then(res => {
+				 console.log(res)
+			 })
+			 
+			 /**
+				* Promise.reject
+				* 和 Promise.resolve 类似，reject 生成一个失败的promise
+				* */
+				Promise.reject('王子为').then(err => {
+					console.log(err)
+				})
+				
+				/**
+				 * Promise.all
+				 * 使用Promise.all 方法可以同时执行多个并行异步操作，比如页面加载时同进获取课程列表与推荐课程。
+				 * */
+				 
+				 /**
+					* Promise.allSettled
+					* allSettled 用于处理多个promise ，只关注执行完成，不关注是否全部执行成功，allSettled 状态只会是fulfilled。
+					* */
+					
+					/**
+					 * Promise.race
+					 * 使用Promise.race() 处理容错异步，和race单词一样哪个Promise快用哪个，哪个先返回用哪个。
+					 * */
+		</script>
+	</body>
+</html>
